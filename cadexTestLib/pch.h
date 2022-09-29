@@ -4,6 +4,12 @@
 // However, files listed here are ALL re-compiled if any one of them is updated between builds.
 // Do not add files here that you will be updating frequently as this negates the performance advantage.
 
+#ifdef CADEXTESTLIB_EXPORTS
+#define CADEXTESTLIB_API __declspec(dllexport)
+#else
+#define CADEXTESTLIB_API __declspec(dllimport)
+#endif
+
 #ifndef PCH_H
 #define PCH_H
 
