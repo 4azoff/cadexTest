@@ -1,24 +1,11 @@
 #pragma once
-
-
-
-#ifdef CADEXTESTLIB_EXPORTS
-#define CADEXTESTLIB_API __declspec(dllexport)
-#else
-#define CADEXTESTLIB_API __declspec(dllimport)
-#endif
-
-#include "BaseCurve.h"
+#include "pch.h"
+#include "Ellipse.h"
+#include "Helix.h"
+#include "Utility.h"
 #include "Circle.h"
+#include <memory>
 
-extern CADEXTESTLIB_API class BaseCurve;
-extern CADEXTESTLIB_API class Circle;
-
-////extern  CADEXTESTLIB_API class BaseClass {
-//private:
-//	float x, y, z;
-//public:
-//	BaseClass(float x, float y, float z) { this->x = x; this->z = z; this->y = y; }
-//};
-
-//extern "C" CADEXTESTLIB_API void PrintHello();
+extern "C" CADEXTESTLIB_API Circle* CreateNewCircle(const double& paramT, const double& radius);
+extern "C" CADEXTESTLIB_API Elipse* CreateNewEllipse(const double& paramT, const double& radiusA, const double& radiusB);
+extern "C" CADEXTESTLIB_API Helix* CreateNewHelix(const double& paramT, const double& radius, const double& step);
