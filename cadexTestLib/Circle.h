@@ -1,17 +1,21 @@
 #pragma once
+#ifndef _CIRCLE_H_
+#define _CIRCLE_H_
+
 #include "BaseCurve.h"
-#include "cadexTestLib.h"
 
 class CADEXTESTLIB_API Circle : public BaseCurve {
-private:
+protected:
 	double radius;
-	
+	double GetXCoord() const override;
+	double GetZCoord() const override { return 0; }
+	double GetYCoord() const override;
+	void PrintInfoAboutType() override;
+
 public:
-	Circle(const double& radius, const double& paramT);
-	double GetXPoint() const override;
-	double GetZPoint() const override { return 0; }
-	double GetYPoint() const override;
+	Circle(const double& radius, const double& paramT);	
 	void SetRadius(const double& radius);
 	double GetRadius() const;
-
+	Vector3D GetFirstDerivativeVector() const override;
 };
+#endif;
